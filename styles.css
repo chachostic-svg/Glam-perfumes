@@ -1,0 +1,1581 @@
+/* ==========================================================================
+   GLAM HAUTE PARFUMS — Inspired by TemplateMonster #558219 ("Glam" Editorial)
+   Typography: 'Marcellus' (Serif Headings) & 'Jost' (Geometric Sans Body)
+   ========================================================================== */
+
+:root,
+[data-theme="light"] {
+  --bg-primary: #FCF2E9;
+  --bg-secondary: #F4E5D6;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #FAF0E6;
+  --hero-bg: #432A1B;
+  --hero-bg-deep: #2E1C11;
+  --footer-bg: #A77353;
+  --text-primary: #3A2315;
+  --text-secondary: #6E4F3A;
+  --text-muted: #967660;
+  --accent: #64412B;
+  --accent-warm: #A77353;
+  --accent-soft: rgba(167, 115, 83, 0.14);
+  --border: rgba(100, 65, 43, 0.24);
+  --border-subtle: rgba(100, 65, 43, 0.12);
+  --shadow: 0 18px 45px rgba(67, 42, 27, 0.09);
+  --danger: #C93B3B;
+  --success: #287D56;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #140E0A;
+  --bg-secondary: #1E1510;
+  --bg-card: #251A13;
+  --bg-elevated: #2D2018;
+  --hero-bg: #23160E;
+  --hero-bg-deep: #120B07;
+  --footer-bg: #2A1B12;
+  --text-primary: #FCF2E9;
+  --text-secondary: #CDB8A7;
+  --text-muted: #937B69;
+  --accent: #D6A27A;
+  --accent-warm: #C48B62;
+  --accent-soft: rgba(214, 162, 122, 0.15);
+  --border: rgba(214, 162, 122, 0.28);
+  --border-subtle: rgba(252, 242, 233, 0.1);
+  --shadow: 0 22px 50px rgba(0, 0, 0, 0.55);
+  --danger: #E05858;
+  --success: #3BB27B;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+
+/* ==========================================================================
+   1. HEADER (Nav Left, Glam Logo Center, Controls Right)
+   ========================================================================== */
+.glam-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--hero-bg);
+  color: #FCF2E9;
+  border-bottom: 1px solid rgba(252, 242, 233, 0.12);
+  transition: background 0.3s ease;
+}
+
+.header-grid {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 82px;
+  gap: 16px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: #FCF2E9;
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.86;
+  transition: opacity 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  color: #E8C3A5;
+}
+
+.glam-logo {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #FCF2E9;
+  user-select: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.glam-logo-text {
+  font-family: 'Marcellus', serif;
+  font-size: 2.3rem;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.glam-logo-sparkle {
+  position: absolute;
+  top: -4px;
+  right: -16px;
+  font-size: 1rem;
+  color: #E8C3A5;
+}
+
+.glam-logo-sub {
+  font-size: 0.58rem;
+  letter-spacing: 0.32em;
+  color: #E8C3A5;
+  margin-top: 3px;
+}
+
+.header-right {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+}
+
+.lang-switcher {
+  display: inline-flex;
+  border: 1px solid rgba(252, 242, 233, 0.24);
+}
+
+.lang-btn {
+  background: transparent;
+  border: none;
+  color: rgba(252, 242, 233, 0.72);
+  padding: 6px 10px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lang-btn.active {
+  background: #FCF2E9;
+  color: #432A1B;
+}
+
+.header-icon-btn,
+.header-cart-btn {
+  background: transparent;
+  border: 1px solid rgba(252, 242, 233, 0.24);
+  color: #FCF2E9;
+  height: 38px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.header-icon-btn:hover,
+.header-cart-btn:hover {
+  background: rgba(252, 242, 233, 0.12);
+  border-color: #FCF2E9;
+}
+
+.header-icon-btn svg,
+.header-cart-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+[data-theme="dark"] .icon-moon {
+  display: none;
+}
+
+[data-theme="light"] .icon-sun {
+  display: none;
+}
+
+.cart-badge {
+  background: #FCF2E9;
+  color: #432A1B;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 99px;
+}
+
+/* ==========================================================================
+   2. HERO SECTION ("Scent Essentials" Split Editorial Layout + Rotating Stamp)
+   ========================================================================== */
+.glam-hero {
+  position: relative;
+  background: linear-gradient(165deg, var(--hero-bg) 0%, var(--hero-bg-deep) 100%);
+  color: #FCF2E9;
+  padding: 64px 0 84px;
+  overflow: hidden;
+}
+
+.hero-botanical-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(232, 195, 165, 0.12), transparent 45%),
+    radial-gradient(circle at 82% 75%, rgba(167, 115, 83, 0.18), transparent 50%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.hero-display-title {
+  font-family: 'Marcellus', serif;
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: #FCF2E9;
+  line-height: 1.08;
+  margin-bottom: 14px;
+}
+
+.hero-display-sub {
+  max-width: 760px;
+  margin: 0 auto 44px;
+  color: rgba(252, 242, 233, 0.82);
+  font-size: 1.02rem;
+  font-weight: 300;
+  letter-spacing: 0.03em;
+}
+
+.hero-split-showcase {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  align-items: center;
+  gap: 32px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* Rotating Circular Stamp Badge */
+.rotating-stamp {
+  position: absolute;
+  top: -36px;
+  left: -18px;
+  width: 136px;
+  height: 136px;
+  color: #E8C3A5;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.stamp-svg {
+  width: 100%;
+  height: 100%;
+  animation: spinStamp 18s linear infinite;
+}
+
+.stamp-center-star {
+  position: absolute;
+  font-size: 1.3rem;
+  color: #FCF2E9;
+}
+
+@keyframes spinStamp {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.hero-photo-frame {
+  background: #FFFFFF;
+  padding: 18px 18px 14px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+  transition: transform 0.35s ease;
+}
+
+.hero-photo-left {
+  transform: rotate(-2deg);
+}
+
+.hero-photo-right {
+  transform: rotate(2deg);
+}
+
+.hero-photo-frame:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.hero-photo-frame img {
+  width: 100%;
+  height: 310px;
+  object-fit: contain;
+  display: block;
+  background: #FFFFFF;
+}
+
+.hero-photo-caption {
+  font-family: 'Marcellus', serif;
+  color: #432A1B;
+  font-size: 0.95rem;
+  margin-top: 10px;
+  letter-spacing: 0.06em;
+}
+
+.hero-center-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding: 24px 12px;
+}
+
+.currency-tag {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1px solid rgba(232, 195, 165, 0.45);
+  color: #E8C3A5;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hero-cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 260px;
+}
+
+/* Sharp Editorial Glam Buttons */
+.glam-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 28px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 0;
+  transition: all 0.25s ease;
+  border: 1px solid transparent;
+}
+
+.glam-btn-light {
+  background: #FCF2E9;
+  color: #432A1B;
+  border-color: #FCF2E9;
+}
+
+.glam-btn-light:hover {
+  background: transparent;
+  color: #FCF2E9;
+}
+
+.glam-btn-outline-light {
+  background: transparent;
+  color: #FCF2E9;
+  border-color: rgba(252, 242, 233, 0.65);
+}
+
+.glam-btn-outline-light:hover {
+  background: #FCF2E9;
+  color: #432A1B;
+}
+
+.glam-btn-solid {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
+}
+
+.glam-btn-solid:hover {
+  background: var(--accent-warm);
+  border-color: var(--accent-warm);
+}
+
+.glam-btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--accent);
+}
+
+.glam-btn-outline:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+.glam-btn-sm {
+  padding: 9px 14px;
+  font-size: 0.74rem;
+  letter-spacing: 0.12em;
+}
+
+.glam-btn-block {
+  width: 100%;
+}
+
+/* ==========================================================================
+   3. SECTIONS & ARCHED CATEGORY CARDS ("Fearless Style")
+   ========================================================================== */
+.glam-section {
+  padding: 84px 0;
+}
+
+.section-header-center {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 52px;
+}
+
+.section-eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+  margin-bottom: 10px;
+}
+
+.section-heading {
+  font-family: 'Marcellus', serif;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-weight: 400;
+  color: var(--text-primary);
+  line-height: 1.18;
+}
+
+.section-subnote {
+  margin-top: 10px;
+  color: var(--text-secondary);
+  font-size: 0.94rem;
+}
+
+.arched-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+.arch-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.arch-image-wrap {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 3 / 3.8;
+  border-radius: 220px 220px 0 0;
+  overflow: hidden;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+  transition: transform 0.35s ease;
+}
+
+.arch-card:hover .arch-image-wrap {
+  transform: translateY(-6px);
+}
+
+.arch-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.45s ease;
+}
+
+.arch-card:hover .arch-image-wrap img {
+  transform: scale(1.06);
+}
+
+.arch-title {
+  font-family: 'Marcellus', serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  margin-bottom: 10px;
+  color: var(--text-primary);
+}
+
+.arch-desc {
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  max-width: 320px;
+  margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   4. RUNNING MARQUEE TICKER STRIP
+   ========================================================================== */
+.glam-marquee {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 18px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee-track {
+  display: inline-block;
+  animation: marqueeScroll 32s linear infinite;
+}
+
+.marquee-track span {
+  font-family: 'Marcellus', serif;
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  letter-spacing: 0.1em;
+  margin-right: 36px;
+}
+
+@keyframes marqueeScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================================================================
+   5. NEW ARRIVALS ("Новинки") & PRODUCT CARDS
+   ========================================================================== */
+.new-arrivals-section {
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(275px, 1fr));
+  gap: 28px;
+}
+
+.perfume-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.perfume-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--border);
+  box-shadow: var(--shadow);
+}
+
+.perfume-img-wrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: #FFFFFF;
+  padding: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.perfume-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.45s ease;
+}
+
+.perfume-card:hover .perfume-img {
+  transform: scale(1.06);
+}
+
+.gender-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(67, 42, 27, 0.88);
+  color: #FCF2E9;
+  font-size: 0.68rem;
+  font-weight: 500;
+  padding: 4px 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.new-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: #A77353;
+  color: #FCF2E9;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.volume-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(252, 242, 233, 0.92);
+  color: #432A1B;
+  border: 1px solid rgba(67, 42, 27, 0.15);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 9px;
+}
+
+.perfume-notes {
+  padding: 14px 18px 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 40px;
+}
+
+/* Card Bottom Info: Explicitly shows Name, Brand, Price in UZS */
+.perfume-bottom-info {
+  margin-top: auto;
+  padding: 14px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.perfume-meta-block {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.perfume-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.meta-label {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  flex-shrink: 0;
+}
+
+.perfume-name {
+  font-family: 'Marcellus', serif;
+  font-size: 1.18rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  text-align: right;
+  line-height: 1.25;
+}
+
+.perfume-brand {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent-warm);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: right;
+}
+
+.perfume-price {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+.perfume-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* ==========================================================================
+   6. ABOUT US SECTION ("Perfect Matches Fragrance")
+   ========================================================================== */
+.glam-about-section {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+}
+
+.about-text {
+  color: var(--text-secondary);
+  margin: 18px 0 22px;
+  font-size: 1rem;
+}
+
+.about-checks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.about-checks li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.94rem;
+}
+
+.check-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--bg-primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.76rem;
+  flex-shrink: 0;
+}
+
+.about-visuals {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.about-card-main,
+.about-card-secondary {
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.about-card-secondary {
+  transform: translateY(28px);
+}
+
+.about-card-main img,
+.about-card-secondary img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ==========================================================================
+   7. CATALOG FILTERS (Category Pills, Brand Chips, Search & Sort)
+   ========================================================================== */
+.section-count {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-top: 6px;
+}
+
+.category-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.pill-btn {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 9px 22px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pill-btn.active,
+.pill-btn:hover {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border-color: var(--accent);
+}
+
+.brand-pills {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 30px;
+}
+
+.brand-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 6px 14px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.brand-chip.active,
+.brand-chip:hover {
+  background: var(--accent-warm);
+  color: #FCF2E9;
+  border-color: var(--accent-warm);
+}
+
+.catalog-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 380px;
+}
+
+.search-box svg {
+  position: absolute;
+  left: 14px;
+  width: 18px;
+  height: 18px;
+  color: var(--text-muted);
+}
+
+.search-box input {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 11px 14px 11px 42px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.sort-select {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 11px 16px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   8. PROMO BANNER & TERRACOTTA FOOTER (TemplateMonster 558219 Signature)
+   ========================================================================== */
+.glam-promo-banner {
+  background: linear-gradient(135deg, var(--hero-bg) 0%, #593824 100%);
+  color: #FCF2E9;
+  padding: 72px 0;
+  text-align: center;
+}
+
+.promo-inner {
+  max-width: 680px;
+}
+
+.promo-eyebrow {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+  color: #E8C3A5;
+  margin-bottom: 10px;
+}
+
+.promo-heading {
+  font-family: 'Marcellus', serif;
+  font-size: clamp(2rem, 3.6vw, 2.9rem);
+  font-weight: 400;
+  margin-bottom: 14px;
+}
+
+.promo-desc {
+  color: rgba(252, 242, 233, 0.84);
+  margin-bottom: 26px;
+}
+
+.glam-footer {
+  background: var(--footer-bg);
+  color: #FCF2E9;
+  padding: 64px 0 28px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 1fr;
+  gap: 36px;
+  align-items: start;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(252, 242, 233, 0.2);
+}
+
+.footer-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-right {
+  text-align: right;
+}
+
+.footer-heading {
+  font-family: 'Marcellus', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.footer-links-list,
+.footer-desc {
+  font-size: 0.88rem;
+  color: rgba(252, 242, 233, 0.88);
+  line-height: 1.7;
+  margin-top: 8px;
+}
+
+.footer-bottom {
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.82rem;
+  color: rgba(252, 242, 233, 0.8);
+}
+
+.scroll-top-btn {
+  width: 40px;
+  height: 40px;
+  background: #432A1B;
+  color: #FCF2E9;
+  border: 1px solid rgba(252, 242, 233, 0.3);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   9. MODALS, CART DRAWER & HIDDEN ADMIN PANEL
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 12, 8, 0.72);
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  display: none;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+
+.modal-backdrop.open {
+  display: flex;
+}
+
+.drawer {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+#adminModal {
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.admin-dialog {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.drawer-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer-header h3 {
+  font-family: 'Marcellus', serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.drawer-body,
+.admin-body {
+  padding: 20px 22px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.cart-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.cart-item {
+  display: grid;
+  grid-template-columns: 60px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  background: var(--bg-primary);
+  padding: 10px;
+  border: 1px solid var(--border-subtle);
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  background: #FFFFFF;
+  padding: 4px;
+}
+
+.cart-item-title {
+  font-family: 'Marcellus', serif;
+  font-size: 0.95rem;
+}
+
+.cart-item-sub {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.cart-qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.qty-btn {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.cart-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: 16px;
+  font-size: 1.05rem;
+}
+
+.cart-total-price {
+  color: var(--accent-warm);
+  font-size: 1.25rem;
+}
+
+.payment-card-box {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  margin-bottom: 18px;
+}
+
+.payment-methods-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.pay-method-tab {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 10px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pay-method-tab small {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.pay-method-tab.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.pay-badge {
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+}
+
+.pay-badge-payme {
+  color: #00CCCC;
+}
+
+.pay-badge-click {
+  color: #0077FF;
+}
+
+.pay-badge-stripe {
+  color: #635BFF;
+}
+
+.provider-header-line {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.85rem;
+}
+
+.provider-status-pill {
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  background: var(--accent-soft);
+  color: var(--accent-warm);
+  border: 1px solid var(--border);
+  font-weight: 600;
+}
+
+.integration-url-preview {
+  margin-top: 6px;
+  font-family: monospace;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  word-break: break-all;
+  background: var(--bg-card);
+  padding: 6px 8px;
+  border: 1px dashed var(--border-subtle);
+}
+
+.payment-status-banner {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.payment-status-banner.status-processing {
+  border-color: var(--accent-warm);
+  color: var(--accent-warm);
+}
+
+.payment-status-banner.status-paid {
+  border-color: var(--success);
+  color: var(--success);
+}
+
+.payment-status-banner.status-failed {
+  border-color: var(--danger);
+  color: var(--danger);
+}
+
+.payment-card-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.payment-card-number-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-card);
+  padding: 8px 12px;
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 8px;
+}
+
+.payment-card-number-row code {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+.copy-btn {
+  background: var(--accent);
+  color: var(--bg-primary);
+  border: none;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.payment-card-holder {
+  font-size: 0.83rem;
+  margin-bottom: 6px;
+}
+
+.payment-hint {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.checkout-form,
+.admin-form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  padding: 10px 13px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.receipt-upload-zone {
+  border: 2px dashed var(--border);
+  background: var(--bg-primary);
+  padding: 18px;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+}
+
+.upload-placeholder svg {
+  width: 28px;
+  height: 28px;
+  color: var(--accent-warm);
+}
+
+.receipt-preview-wrapper img {
+  max-height: 190px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.change-receipt-badge {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.78rem;
+  color: var(--accent-warm);
+  text-decoration: underline;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.admin-login-box {
+  max-width: 380px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.admin-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 12px;
+}
+
+.admin-tab {
+  background: var(--bg-primary);
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  padding: 8px 16px;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.84rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.admin-tab.active {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+.logout-tab {
+  margin-left: auto;
+  color: var(--danger);
+}
+
+.admin-alert {
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  padding: 12px 16px;
+  font-size: 0.84rem;
+}
+
+.admin-alert ol {
+  margin: 8px 0 0 18px;
+}
+
+.input-with-action {
+  display: flex;
+  gap: 8px;
+}
+
+.input-with-action input {
+  flex: 1;
+}
+
+.form-row-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.form-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.admin-actions-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.admin-product-editor {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  padding: 16px;
+  margin-bottom: 20px;
+}
+
+.admin-product-editor h4 {
+  font-family: 'Marcellus', serif;
+  margin-bottom: 12px;
+}
+
+.admin-products-table-wrap {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 10px;
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: left;
+}
+
+.admin-table img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  background: #FFFFFF;
+  padding: 3px;
+}
+
+.orders-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.admin-orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.order-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  padding: 14px;
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 16px;
+}
+
+.order-receipt-thumb {
+  width: 100%;
+  max-height: 150px;
+  object-fit: contain;
+  border: 1px solid var(--border);
+  background: #FFFFFF;
+}
+
+.toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.toast {
+  background: var(--hero-bg);
+  color: #FCF2E9;
+  border: 1px solid #E8C3A5;
+  padding: 12px 18px;
+  box-shadow: var(--shadow);
+  font-size: 0.88rem;
+}
+
+@media (max-width: 960px) {
+  .header-grid {
+    grid-template-columns: 1fr auto;
+  }
+  .header-nav {
+    display: none;
+  }
+  .hero-split-showcase,
+  .arched-grid,
+  .about-grid,
+  .footer-grid,
+  .form-row-2,
+  .form-row-3,
+  .order-card {
+    grid-template-columns: 1fr;
+  }
+  .footer-right {
+    text-align: center;
+  }
+}

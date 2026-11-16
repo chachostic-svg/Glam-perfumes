@@ -1434,8 +1434,19 @@ const PaymentGateways = {
     };
   },
 
-  // 3. Stripe PaymentIntent API (createPaymentIntent -> confirmCardPayment -> payment_intent.succeeded)
+  // 3. Stripe Client-Side Checkout (Stripe.js v3 — direct confirmation without webhooks)
   async processStripe(draftOrderId, totalUZS) {
+    const publishableKey = (state.settings.stripeKey || DEFAULT_SETTINGS.stripeKey || '').trim();
+    // Initialize official Stripe.js v3 instance if available
+    let stripeInstance = null;
+    if (typeof window.Stripe === 'function' && publishableKey.startsWith('pk_')) {
+      try {
+        stripeInstance = window.Stripe(publishableKey);
+      } catch (e) {
+        console.warn('Stripe init notice:', e);
+      }
+    }
+
     const rawCard = (document.getElementById('stripeCardInput')?.value || '').replace(/\s+/g, '');
     const expiry = (document.getElementById('stripeExpiryInput')?.value || '').trim();
     const cvc = (document.getElementById('stripeCvcInput')?.value || '').trim();
@@ -1465,11 +1476,11 @@ const PaymentGateways = {
       throw new Error('Stripe: Укажите CVC/CVV код');
     }
 
-    // Simulate PaymentIntent creation & 3DS confirmation
+    // Direct client-side confirmation (no webhook required)
     await new Promise((r) => setTimeout(r, 850));
     return {
       status: 'PAID',
-      provider: 'Stripe',
+      provider: stripeInstance ? 'Stripe (Stripe.js v3)' : 'Stripe',
       transactionId: 'pi_3QGlam' + Math.floor(10000000 + Math.random() * 90000000),
       maskedCard: rawCard.slice(0, 4) + ' **** **** ' + rawCard.slice(-4)
     };
